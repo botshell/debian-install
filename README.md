@@ -2,21 +2,21 @@ Some vps companies don't permit user to mount customized iso, however people con
 
 - If the rescue-mode is provided and have access for internet, just transfer the rescue-os disk to an installation media.  
 The reason for using the original-os instead of running the reinstallation script on the rescue os is that, on the rescue os, many components are missing due to the outdated system version, which can cause the script to fail.  
-First, follow [these steps](https://github.com/driverdrift/debian-install/blob/main/install-from-rescue.md) to boot from original-os in grub menu when vps in rescue-mode.
+First, follow [these steps](https://github.com/botshell/debian-install/blob/main/install-from-rescue.md) to boot from original-os in grub menu when vps in rescue-mode.
 - If no rescue-mode is provided or the rescue-mode disk is small to contain netinst.iso, then use the only hard disk to install new os. See [these](./install-from-origin.md) ways.
 
 Run the code below to install automatically.  
 This will reimage the entire disk with Debian in rescue mode and **WIPE ALL DATA** on the disk WITHOUT any interactive confirmation.  
 The trailing "y" skips the disk format confirmation prompt.
 ```bash
-bash <(wget -qO- https://raw.githubusercontent.com/driverdrift/debian-install/main/install.sh) y
+bash <(wget -qO- https://raw.githubusercontent.com/botshell/debian-install/main/install.sh) y
 
 ```
 Or run the code below to install manually.  
 This performs the same Debian reinstallation in rescue mode, but WILL prompt you for confirmation before formatting the disk.  
 Use this if you want to review or confirm destructive actions.
 ```bash
-bash <(wget -qO- https://raw.githubusercontent.com/driverdrift/debian-install/main/install.sh)
+bash <(wget -qO- https://raw.githubusercontent.com/botshell/debian-install/main/install.sh)
 
 ```
 
