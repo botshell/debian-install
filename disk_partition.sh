@@ -49,7 +49,7 @@ disk_partition() {
 
 	sync && partx -u $target && echo "inform system fo flush partiton table" >&2
 	
-	apt-get install dosfstools -y 1>/dev/null
+	apt-get install dosfstools cryptsetup -y 1>/dev/null
 
 	(
 		mkfs.vfat -F32 -I -n ESP "${target}2"  # uefi partition for new os
