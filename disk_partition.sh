@@ -62,8 +62,8 @@ disk_partition() {
 		mkswap "${target}6"  # swap partition for low memory machine
 	) 1>/dev/null
 
-	echo -n "passphrase_for_swap_during_installation" | cryptsetup luksFormat /dev/sdb1 --batch-mode --key-file -
-	echo -n "passphrase_for_swap_during_installation" | cryptsetup open /dev/sdb1 crypt_lvm --key-file -
+	echo -n "passphrase_for_swap_during_installation" | cryptsetup luksFormat "${target}6" --batch-mode --key-file -
+	echo -n "passphrase_for_swap_during_installation" | cryptsetup open "${target}6" crypt_lvm --key-file -
 	mkswap /dev/mapper/crypt_lvm >&2
 	cryptsetup close /dev/mapper/crypt_lvm
 	#
