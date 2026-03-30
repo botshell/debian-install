@@ -33,3 +33,5 @@ LC_ALL=
 
  也可以
  dpkg-reconfigure locales
+
+ nginx 配置的长度是80
