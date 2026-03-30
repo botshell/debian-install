@@ -38,4 +38,6 @@ locale-gen zh_CN.UTF-8
  也可以
  dpkg-reconfigure locales
 
+ source /etc/default/locale 或者重启终端
+
  nginx 配置的长度是80
