@@ -33,6 +33,7 @@ LC_ALL=
 
  sudo sed -i 's/^# *zh_CN.UTF-8 UTF-8/zh_CN.UTF-8 UTF-8/' /etc/locale.gen
 sudo locale-gen
+locale-gen zh_CN.UTF-8
 
  也可以
  dpkg-reconfigure locales
