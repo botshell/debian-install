@@ -27,6 +27,10 @@ swapoff /dev/vda && free -h
 Ctrl + Alt + F1 继续流程
 此时无法修改vda分区为gpt，因此可以先整体分区为root并清除扇道后重新进入，或者 一开始设置swap分区时候就设置一个分区而不是整个盘，也可以试试dd命令清除，但是没试过
 
+开机后 nano /etc/ssh/sshd_config
+然后 重启ssh服务
+systemctl restart ssh
+
 Some vps companies don't permit user to mount customized iso, however people concern about the preinstalled os.
 
 - If the rescue-mode is provided and have access for internet, just transfer the rescue-os disk to an installation media.  
