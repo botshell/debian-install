@@ -8,7 +8,9 @@ cat /proc/partitions
 mkswap /dev/vda && swapon /dev/vda && free -h
 
 Ctrl + Alt + F1
-知道打开手动分区那一刻开始才能加载加密模组
+走流程，域名设置为空，主机名debian，直到硬盘检测后打开手动分区前那一刻开始才能加载加密模组
+
+Ctrl + Alt + F2
 
 echo -n "passphrase_for_swap_during_installation" | cryptsetup --batch-mode luksFormat "/dev/vdb6" --batch-mode --key-file -
 
@@ -16,7 +18,13 @@ echo -n "passphrase_for_swap_during_installation" | cryptsetup open "/dev/vdb6" 
 
 mkswap /dev/mapper/crypt_lvm
 
+swapon /dev/mapper/crypt_lvm
 
+关闭未加密的共享内存
+
+swapoff /dev/vda && free -h
+
+Ctrl + Alt + F1 继续流程
 
 Some vps companies don't permit user to mount customized iso, however people concern about the preinstalled os.
 
