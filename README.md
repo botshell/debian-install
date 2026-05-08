@@ -9,6 +9,7 @@ mkswap /dev/vda && swapon /dev/vda && free -h
 
 Ctrl + Alt + F1
 知道打开手动分区那一刻开始才能加载加密模组
+
 echo -n "passphrase_for_swap_during_installation" | cryptsetup --batch-mode luksFormat "/dev/vdb6" --batch-mode --key-file -
 
 echo -n "passphrase_for_swap_during_installation" | cryptsetup open "/dev/vdb6" crypt_lvm --key-file -
