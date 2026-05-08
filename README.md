@@ -1,3 +1,16 @@
+知道打开手动分区那一刻开始才能加载加密模组
+
+然后要选择手动分区
+mkswap /dev/vda
+
+echo -n "passphrase_for_swap_during_installation" | cryptsetup --batch-mode luksFormat "/dev/vdb6" --batch-mode --key-file -
+
+echo -n "passphrase_for_swap_during_installation" | cryptsetup open "/dev/vdb6" crypt_lvm --key-file -
+
+mkswap /dev/mapper/crypt_lvm
+
+
+
 Some vps companies don't permit user to mount customized iso, however people concern about the preinstalled os.
 
 - If the rescue-mode is provided and have access for internet, just transfer the rescue-os disk to an installation media.  
