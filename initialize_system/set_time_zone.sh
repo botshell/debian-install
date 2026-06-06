@@ -8,12 +8,14 @@ if [ -n "$TZ_WIN" ]; then
   if [ "$HOURS_CLEAN" -eq 0 ]; then
     MY_TZ="Etc/UTC"
   elif [[ "$HOURS" == -* ]]; then
-    MY_TZ="Etc/UTC+${HOURS_CLEAN}"
+    MY_TZ="Etc/GMT+${HOURS_CLEAN}"
   else
-    MY_TZ="Etc/UTC-${HOURS_CLEAN}"
+    MY_TZ="Etc/GMT-${HOURS_CLEAN}"
   fi
 
   # export 的真正威力不是向上改变父进程，而是向下影响它自己的子进程。
   # source 命令则是在当前进程中读入并执行这个脚本
-  export TZ="$MY_TZ"
+  # export TZ="$MY_TZ"
+  echo "正在将系统全局时区设置为: $MY_TZ"
+  timedatectl set-timezone "$MY_TZ"
 fi
