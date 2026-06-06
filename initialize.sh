@@ -11,7 +11,7 @@ locale
 # Linux 的配置是有优先级（覆盖机制）的：
 # $$文本/终端的最终语言 \leftarrow 用户个人配置 (.bashrc) \leftarrow 系统全局默认 (/etc/default/locale)$$
 cat /etc/default/locale
-用这个命令去修改
+用这个命令去修改，其中语言必须是已经编译好的语言，否则会抱错
 update-locale LANG="C.UTF-8"
 
 # Linux 系统为了节省空间，默认不会把全世界几百种语言的字库、排序规则、时间格式全部生成出来（那会占用大量内存和硬盘）。
