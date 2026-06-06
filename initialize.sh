@@ -12,7 +12,7 @@ locale
 # $$文本/终端的最终语言 \leftarrow 用户个人配置 (.bashrc) \leftarrow 系统全局默认 (/etc/default/locale)$$
 cat /etc/default/locale
 用这个命令去修改
-update-locale LANG="en_US.UTF-8"
+update-locale LANG="C.UTF-8"
 
  nano /etc/locale.gen
  取消注释
