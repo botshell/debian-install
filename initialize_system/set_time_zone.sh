@@ -19,4 +19,7 @@ if [ -n "$TZ_WIN" ]; then
   echo "正在将系统全局时区设置为: $MY_TZ"
   timedatectl set-timezone "$MY_TZ"
   date
+else
+  echo "TZ_WIN 为空，正在退出..."
+  exit 1
 fi
