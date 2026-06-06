@@ -18,4 +18,5 @@ if [ -n "$TZ_WIN" ]; then
   # export TZ="$MY_TZ"
   echo "正在将系统全局时区设置为: $MY_TZ"
   timedatectl set-timezone "$MY_TZ"
+  date
 fi
