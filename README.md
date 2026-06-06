@@ -62,3 +62,6 @@ Partition sample
 | /dev/sdX4/ | -2049M | Linux filesystem | ext4     | Bios&Uefi | /root and /swap partition for pure os to install, encrypted volume, then configure LVM on it. |
 | /dev/sdX5/ | 1G     | Linux filesystem | ext4     | Bios&Uefi | Install-media, encrypted after installation                                                   |
 | /dev/sdX6/ | 1G     | Linux swap       | swap     | Bios&Uefi | Swap memory for low memory machine during the installation, encrypted after installation      |
+
+按照完成后根据该仓库的步骤完成初始化配置
+https://github.com/botshell/debian-initialization/blob/main/main.sh
