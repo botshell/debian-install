@@ -14,16 +14,18 @@ cat /etc/default/locale
 用这个命令去修改
 update-locale LANG="C.UTF-8"
 
+# Linux 系统为了节省空间，默认不会把全世界几百种语言的字库、排序规则、时间格式全部生成出来（那会占用大量内存和硬盘）。
+# 里面放的是生成（Compilation）语言包的“配方源列表”。
  nano /etc/locale.gen
- 取消注释
- 然后重新运行
+ 取消注释需要的语言
+ sudo sed -i 's/^# *zh_CN.UTF-8 UTF-8/zh_CN.UTF-8 UTF-8/' /etc/locale.gen
+ # 然后运行下面命令，系统就会去读这个文件，只把那些前面没有 # 号的语言编译出来。
  locale-gen
-
-sudo sed -i 's/^# *zh_CN.UTF-8 UTF-8/zh_CN.UTF-8 UTF-8/' /etc/locale.gen
-sudo locale-gen
+# 而当你后面加上了具体的参数它会命令系统：“别管 /etc/locale.gen 文件的状态了，现在立刻、单独给我把 zh_CN.UTF-8 这个语言包编译出来！”
+# 这个命令非常智能。它在帮你临时生成中文包的同时，还会顺手帮你把 /etc/locale.gen 文件里对应的 # zh_CN.UTF-8 UTF-8 前面的 # 号删掉（自动取消注释）。
 locale-gen zh_CN.UTF-8
 
- 也可以
+ 也可以运行下面命令在蓝色的图形界面里勾选 zh_CN.UTF-8 UTF-8。这个工具在幕后做的事情，其实就是帮你去修改 /etc/locale.gen 并自动取消掉那行的 # 号，然后运行生成。
  dpkg-reconfigure locales
 
  source /etc/default/locale 或者重启终端
