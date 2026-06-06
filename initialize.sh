@@ -24,6 +24,8 @@ update-locale LANG="C.UTF-8"
 
  #也可以运行下面命令在蓝色的图形界面里勾选 zh_CN.UTF-8 UTF-8。这个工具在幕后做的事情，其实就是帮你去修改 /etc/locale.gen 并自动取消掉那行的 # 号，然后运行生成。
  # dpkg-reconfigure locales
+ # 里边有一条提示
+ #  Please note that the C, C.UTF-8 and POSIX locales are always available and do not need to be generated.
 
 # 在执行 update-locale 后需要重载环境变量或者重新进入终端后生效
  source /etc/default/locale
