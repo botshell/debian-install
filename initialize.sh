@@ -18,6 +18,8 @@ locale
 # 说明这个文件不需要你手动去用 nano 或 vim 乱改，而是系统通过 update-locale 工具（或者你运行 dpkg-reconfigure locales 时）自动写入的。
 # Linux 的配置是有优先级（覆盖机制）的：
 # $$文本/终端的最终语言 \leftarrow 用户个人配置 (.bashrc) \leftarrow 系统全局默认 (/etc/default/locale)$$
+# 用户层级：你登录了系统。如果你在自己的用户配置文件（比如 ~/.bashrc 或 ~/.profile）里写了一句 export LANG="zh_CN.UTF-8"，
+# 那么你个人的设置就会覆盖系统的默认设置。
 cat /etc/default/locale
 用这个命令去修改，其中语言必须是已经编译好的语言，否则会抱错
 update-locale LANG="C.UTF-8"
@@ -26,8 +28,9 @@ update-locale LANG="C.UTF-8"
  # dpkg-reconfigure locales
  # 里边有一条提示
  #  Please note that the C, C.UTF-8 and POSIX locales are always available and do not need to be generated.
+ # 并且在这里的默认语言如果选无，那么保留原有的 /etc/default/locale 配置，否则会进行修改即执行 update-locale ，但并不会自动  source /etc/default/locale
 
-# 在执行 update-locale 后需要重载环境变量或者重新进入终端后生效
+# 因此无论是通过cli显式执行 update-locale 还是通过 gui dpkg-reconfigure 隐式修改默认语言选项，均需要重载环境变量或者重新进入终端后生效
  source /etc/default/locale
 
  nginx 配置的长度是80
