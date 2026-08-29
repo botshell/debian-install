@@ -82,6 +82,6 @@ If the installer fails to switch `/dev/vda` to GPT format:
 ```bash
 wipefs -a /dev/vda || dd if=/dev/zero of=/dev/vda bs=1M count=100
 sync
-# 刷新内核分区表
+# 刷新内核分区表，经过测试blockdev可用，partprobe在安装系统阶段不行
 partprobe /dev/vda || blockdev --rereadpt /dev/vda
 ```
