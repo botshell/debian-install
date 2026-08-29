@@ -81,4 +81,5 @@ If the installer fails to switch `/dev/vda` to GPT format:
 - Use dd to wipe the primary partition table headers if stale partition headers persist:
 ```bash
 dd if=/dev/zero of=/dev/vda bs=1M count=100
+sync
 ```
