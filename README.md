@@ -5,8 +5,6 @@ The reason for using the original-os instead of running the reinstallation scrip
 Follow [these steps](./install-from-rescue.md) to chainload and boot into the provider's default unencrypted OS via the GRUB menu while in rescue mode.
 - If no rescue-mode is provided or the rescue-mode disk is small to contain netinst.iso, then use the only hard disk to install new os. See [these](./install-from-origin.md) ways.
 
-```
-
 Partition sample
 | Partition  | Size   | Type             | FSTYPE   | Mode      | Use as                                                                                        |
 | :--------- | -----: | :--------------- | :------- | :-------- | :-------------------------------------------------------------------------------------------- |
