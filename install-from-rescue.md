@@ -80,5 +80,5 @@ If the installer fails to switch `/dev/vda` to GPT format:
 - Alternatively, create a dedicated partition for swap initially instead of targeting the raw disk.
 - Use dd to wipe the primary partition table headers if stale partition headers persist:
 ```bash
-dd if=/dev/zero of=/dev/vda bs=512 count=34
+dd if=/dev/zero of=/dev/vda bs=1M count=100
 ```
